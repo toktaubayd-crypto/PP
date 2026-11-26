@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>ЗдоровоЕд — правильное питание</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6faf4;--cd:#fff;--tx:#1c2a1e;--mu:#5a6a5d;--ac:#2e8b57;--al:#e6f2e8;--bd:#d6e3d8;--rd:#c0392b;--yl:#a8700f;--gd:#2e8b57;color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#111a14;--cd:#1a251d;--tx:#e6efe8;--mu:#9fb2a4;--ac:#4cc183;--al:#22342a;--bd:#2e4034;--rd:#ef7b6e;--yl:#e0b255;--gd:#4cc183;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#111a14;--cd:#1a251d;--tx:#e6efe8;--mu:#9fb2a4;--ac:#4cc183;--al:#22342a;--bd:#2e4034;--rd:#ef7b6e;--yl:#e0b255;--gd:#4cc183;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.w{max-width:980px;margin:0 auto;padding:16px}
+header{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:8px 0 12px}
+h1{font-size:22px;margin:0}h2{font-size:20px;margin:20px 0 8px}h3{margin:0 0 6px;font-size:17px}
+nav{display:flex;flex-wrap:wrap;gap:6px}
+button,.b{font:inherit;cursor:pointer;border:1px solid var(--bd);background:var(--cd);color:var(--tx);padding:8px 14px;border-radius:10px}
+button.on,.pr{background:var(--ac);color:#fff;border-color:var(--ac)}
+.pr{font-weight:600;padding:12px 20px}
+.g{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.c{background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:14px}
+.c.s{border:2px solid var(--ac);background:var(--al)}
+.p{font-size:24px;font-weight:700;color:var(--ac)}
+ul{margin:4px 0;padding-left:20px}.mu{color:var(--mu);font-size:14px}
+input,textarea,select{font:inherit;width:100%;padding:9px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);margin:4px 0 8px}
+label.k{display:flex;gap:8px;align-items:flex-start;cursor:pointer}label.k input{width:auto;margin:5px 0}
+.ok{color:var(--gd)}.no{color:var(--rd)}.lm{color:var(--yl)}
+.t{display:inline-block;padding:2px 9px;border-radius:99px;background:var(--al);font-size:13px;margin:2px}
+.m{padding:10px;border-left:4px solid var(--ac);background:var(--al);border-radius:8px;margin:8px 0}
+.tbl{overflow-x:auto}
+body{background:linear-gradient(180deg,var(--al),var(--bg) 420px) no-repeat,var(--bg)}
+.hero{background:linear-gradient(135deg,#1f9d57,#14b8a6 65%,#7ed957);color:#fff;border-radius:20px;padding:28px 22px;margin:8px 0 18px}
+.hero h2{font-size:clamp(26px,5.5vw,40px);margin:0 0 10px;line-height:1.15}
+.hero p{font-size:17px;margin:0 0 18px}
+.pr{background:linear-gradient(135deg,#ff8a1f,#ff5e3a);border:0;color:#fff;box-shadow:0 6px 16px rgba(255,94,58,.3)}
+a.pr{display:inline-block;text-decoration:none;border-radius:10px;margin:0 6px 6px 0}
+.gh{display:inline-block;text-decoration:none;color:#fff;border:2px solid #fff;border-radius:10px;padding:10px 18px;font:inherit;background:transparent;cursor:pointer;font-weight:600}
+.c{transition:transform .15s,box-shadow .15s}.c:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.08)}
+.rel{position:relative}.bdg{position:absolute;top:-11px;right:12px;background:#ff5e3a;color:#fff;border-radius:99px;padding:2px 12px;font-size:13px;font-weight:600}
+.big{font-size:30px}
+details{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:10px 14px;margin:6px 0}summary{cursor:pointer;font-weight:600}
+.sv{color:var(--gd);font-weight:600}
+</style></head><body><div class="w" id="root"></div>
+<script src="config.js"></script>
+<script id="app">
+const CFG=/*CFG*/{"brand":"ЗдоровоЕд","admLogin":"admin","admHash":"","pay":"","payNote":"Оплата через Kaspi / банковскую карту","disc":{"1":0,"2":10,"3":15,"4":20},"pk":[{"id":"std","name":"Стандарт","price":15000,"feat":["Меню на неделю","Списки продуктов","Подбор блюд"]},{"id":"prm","name":"Премиум","price":25000,"feat":["Всё из «Стандарта»","Меню на месяц","Список покупок","Чат с диетологом"]},{"id":"vip","name":"VIP","price":45000,"feat":["Всё из «Премиума»","Личный план питания","Корректировка каждую неделю","Приоритетная поддержка"]}]}/*END*/;
+Object.assign(CFG,window.SITE_CONFIG||{});
+const D=[
+{id:"gf",n:"Безглютеновое",i:"🌾",d:"Для непереносимости глютена и целиакии.",ok:["Рис, гречка, киноа, кукуруза, пшено","Мясо, птица, рыба, яйца","Овощи, фрукты, ягоды","Молочные продукты без добавок","Бобовые, орехи, растительные масла"],no:["Пшеница, рожь, ячмень, манка, булгур","Обычный хлеб, макароны, выпечка","Колбасы, соусы и полуфабрикаты с мукой/крахмалом","Пиво, квас","Овсянка без маркировки gluten-free"],lm:["Готовые соусы и специи (проверять состав)","Йогурты с добавками","Продукты «может содержать следы глютена»"]},
+{id:"loss",n:"Для похудения",i:"🥗",d:"Умеренный дефицит калорий, больше белка и клетчатки.",ok:["Куриная грудка, индейка, рыба, постная говядина","Овощи (кроме крахмалистых в больших объёмах)","Яйца, творог 2–5%, кефир","Гречка, бурый рис, овсянка","Ягоды, яблоки, цитрусовые"],no:["Сладкие напитки и соки","Фастфуд, чипсы, снеки","Кондитерка, торты, конфеты","Алкоголь","Жареное во фритюре"],lm:["Хлеб и выпечка","Сухофрукты, мёд, бананы","Орехи (до 30 г в день)","Масла (1–2 ч. л. на приём)","Белый рис, картофель"]},
+{id:"mass",n:"Набор мышечной массы",i:"💪",d:"Профицит калорий, 1,6–2 г белка на кг веса.",ok:["Говядина, курица, индейка, рыба","Яйца, творог, сыр, молоко","Рис, гречка, паста из твёрдых сортов","Картофель, бананы, сухофрукты","Орехи, авокадо, оливковое масло"],no:["Алкоголь","Фастфуд и трансжиры","Сладкая газировка","Пропуск приёмов пищи","Сильно острая и жирная еда перед тренировкой"],lm:["Простые сахара (только вокруг тренировки)","Колбасы и сосиски","Жирные соусы","Кофе поздно вечером"]},
+{id:"aip",n:"АИП (аутоиммунный протокол)",i:"🍠",d:"Строгая элиминационная диета. Проводить с врачом.",ok:["Мясо, птица, субпродукты","Рыба и морепродукты","Овощи (кроме паслёновых)","Батат, кабачок, брокколи, зелень","Кокосовое молоко, оливковое и авокадо масло","Ферментированные овощи, костный бульон"],no:["Зерновые и псевдозерновые","Бобовые и соя","Молочные продукты","Яйца","Орехи и семена","Паслёновые: томаты, картофель, баклажаны, перец, паприка","Алкоголь, кофе, сахар, эмульгаторы"],lm:["Фрукты (10–20 г фруктозы в день)","Кокосовые продукты","Натуральные подсластители (мёд, кленовый сироп)","Зелёный чай"]}];
+const M=[["b","Завтрак"],["l","Обед"],["d","Ужин"],["s","Перекус"]];
+const F=[
+["b","Лосось с авокадо и бататом","gf mass aip loss"],["b","Тушёная говядина с кабачком","gf loss mass aip"],["b","Омлет с овощами","gf loss mass"],["b","Овсянка gluten-free с ягодами","gf loss"],["b","Гречневая каша с творогом","gf mass loss"],["b","Рисовая каша с бананом и орехами","gf mass"],
+["l","Куриная грудка с гречкой и салатом","gf loss mass"],["l","Индейка с киноа и брокколи","gf loss mass"],["l","Говяжий суп с кореньями и зеленью","gf loss mass aip"],["l","Рис с говядиной и тушёными овощами","gf mass"],["l","Запечённая треска с цветной капустой","gf loss aip"],["l","Плов из индейки с бурым рисом","gf mass"],
+["d","Лосось на пару с брокколи","gf loss mass aip"],["d","Куриные тефтели с кабачком (без муки)","gf loss aip mass"],["d","Говядина с картофелем и морковью","gf mass"],["d","Говядина с бататом и тушёной морковью","gf mass aip"],["d","Творог с ягодами","gf loss"],["d","Индейка с тушёной капустой","gf loss aip mass"],
+["s","Яблоко и горсть миндаля","gf loss mass"],["s","Банан с арахисовой пастой","gf mass"],["s","Кефир и ягоды","gf loss mass"],["s","Кокосовый йогурт с ягодами","gf loss aip"],["s","Запечённая груша с корицей","gf loss aip"],["s","Вяленое мясо без добавок и авокадо","gf mass aip"]];
+const S={tab:"home",pk:"prm",sel:["loss"],gen:[],menu:null,user:null,adm:false,msg:"",st:"",pf:{sex:"m",act:1.375,w:"",h:"",a:"",ex:""}};
+const $=s=>document.querySelector(s),esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const mem={};const ls={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return mem[k]||null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){mem[k]=v}}};
+const sha=async s=>[...new Uint8Array(await crypto.subtle.digest("SHA-256",new TextEncoder().encode("gf:"+s)))].map(b=>b.toString(16).padStart(2,"0")).join("");
+Object.assign(S.pf,ls.get("gf_pf")||{});const fmt=n=>Math.round(n).toLocaleString("ru-RU")+" ₸";
+const calc=()=>{const p=CFG.pk.find(x=>x.id===S.pk)||CFG.pk[0],n=S.sel.length,ds=CFG.disc[n]||0;return{p,n,ds,sum:p.price*n*(100-ds)/100}};
+function pay(){const c=calc();if(!c.n){S.msg="Выберите хотя бы один раздел";return render()}
+ if(!S.user){S.msg="Войдите или зарегистрируйтесь, чтобы оплатить";S.tab="cab";return render()}
+ const u=ls.get("gf_u")||{};u[S.user].orders=(u[S.user].orders||[]).concat({d:new Date().toLocaleDateString("ru-RU"),p:c.p.name,s:S.sel.map(i=>D.find(x=>x.id===i).n).join(", "),sum:c.sum,st:"ожидает оплаты"});ls.set("gf_u",u);
+ if(/^https:\/\//.test(CFG.pay)){window.open(CFG.pay,"_blank","noopener")}else S.msg="Ссылка на оплату пока не настроена владельцем сайта. Заказ сохранён в кабинете.";S.tab="cab";render()}
+const lock=()=>`<div class="c"><h3>🔒 Доступно после входа</h3><p>Войдите или зарегистрируйтесь, чтобы открыть этот раздел.</p><button class="pr" data-a="tab" data-v="cab">Войти</button></div>`;
+const faq=()=>`<h2>Частые вопросы</h2><details><summary>Чем отличаются пакеты?</summary><p>Чем выше пакет, тем больше персонального сопровождения: от готового меню до индивидуального плана с еженедельной корректировкой. Состав пакетов указан в карточках выше.</p></details><details><summary>Как считается цена?</summary><p>Цена пакета умножается на число выбранных разделов, а за несколько разделов сразу действует скидка. Итоговую сумму вы видите до оплаты.</p></details><details><summary>Учитываются ли мои нелюбимые продукты и калории?</summary><p>Да. Укажите вес, рост, возраст и продукты, которые не едите, и сайт подберёт меню без них и под вашу норму калорий.</p></details><details><summary>Подходит ли при аллергии или заболевании?</summary><p>Меню справочное и не заменяет врача. При аллергии, целиакии, аутоиммунных заболеваниях и беременности согласуйте питание со специалистом.</p></details><details><summary>Как оплатить?</summary><p>Нажмите «Перейти к оплате» и оплатите по открывшейся ссылке. Для этого нужно войти или зарегистрироваться.</p></details>`;
+const home=()=>{const c=calc();return`<div class="hero"><h2>Питание под вашу цель — меню за 2 минуты</h2><p>Похудение, набор массы, без глютена или АИП. Считаем калории по вашим параметрам, учитываем нелюбимые продукты и показываем, что можно, нельзя и стоит ограничить.</p><a class="pr b" href="#tarif">Выбрать план</a><button class="gh" data-a="tab" data-v="menu">Подобрать меню</button></div><div class="g"><div class="c"><div class="big">🎯</div><h3>Под вашу цель</h3><span class="mu">Четыре направления питания, можно сочетать</span></div><div class="c"><div class="big">🧮</div><h3>Ваши калории</h3><span class="mu">Расчёт по весу, росту, возрасту и активности</span></div><div class="c"><div class="big">🚫</div><h3>Без нелюбимого</h3><span class="mu">Исключаем продукты, которые вы не едите или не переносите</span></div><div class="c"><div class="big">✅</div><h3>Всё понятно</h3><span class="mu">Списки: разрешено, запрещено, ограничить</span></div></div><h2>Как это работает</h2><div class="g"><div class="c"><div class="big">1️⃣</div>Выберите раздел и пакет</div><div class="c"><div class="big">2️⃣</div>Оплатите и войдите в кабинет</div><div class="c"><div class="big">3️⃣</div>Введите параметры и получите меню</div></div><h2>1. Выберите разделы питания</h2><div class="g">${D.map(d=>`<label class="c k ${S.sel.includes(d.id)?"s":""}"><input type="checkbox" data-a="sel" data-v="${d.id}" ${S.sel.includes(d.id)?"checked":""}><span><h3>${d.i} ${esc(d.n)}</h3><span class="mu">${esc(d.d)}</span></span></label>`).join("")}</div>
+<p class="mu">Скидка за несколько разделов: ${[2,3,4].map(n=>`${n} — ${CFG.disc[n]||0}%`).join(", ")}.</p>
+<h2 id="tarif">2. Выберите пакет</h2><div class="g">${CFG.pk.map(p=>`<div class="c rel ${p.id===S.pk?"s":""}">${p.id==="prm"?'<span class="bdg">★ Рекомендуем</span>':""}<h3>${esc(p.name)}</h3><div class="p">${fmt(p.price)}<span class="mu"> / мес за раздел</span></div><ul>${p.feat.map(f=>`<li>${esc(f)}</li>`).join("")}</ul><button class="${p.id===S.pk?"on":""}" data-a="pk" data-v="${p.id}">${p.id===S.pk?"✓ Выбрано":"Выбрать"}</button></div>`).join("")}</div>
+<h2>3. Оплата</h2><div class="c s"><p>Пакет «${esc(c.p.name)}» × ${c.n} раздел(а)${c.ds?`, скидка ${c.ds}%`:""}</p><div class="p">${fmt(c.sum)} / мес</div><p class="mu">это всего ${fmt(c.sum/30)} в день${c.ds?` · <span class="sv">вы экономите ${fmt(c.p.price*c.n-c.sum)}</span>`:""}</p><p class="mu">${esc(CFG.payNote)}</p><button class="pr" data-a="pay">Перейти к оплате →</button><p class="mu">Итоговая сумма видна сразу, без скрытых платежей.</p>${S.msg?`<div class="m">${esc(S.msg)}</div>`:""}</div>${faq()}`};
+const lists=()=>S.user||S.adm?`<h2>Продукты по разделам</h2>${D.map(d=>`<div class="c" style="margin-bottom:12px"><h3>${d.i} ${esc(d.n)}</h3><div class="g"><div><b class="ok">✅ Разрешено</b><ul>${d.ok.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div><div><b class="no">⛔ Запрещено</b><ul>${d.no.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div><div><b class="lm">⚠️ Ограничить</b><ul>${d.lm.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div></div></div>`).join("")}<p class="mu">Информация справочная и не заменяет консультацию врача.</p>`:lock();
+const ALI={"рыб":["лосос","трес"],"мяс":["говяд","индей","кури"],"молоч":["творог","кефир","йогурт"],"молок":["творог","кефир","йогурт"],"орех":["орех","миндал","арахис"],"яйц":["омлет"]};
+const exs=()=>S.pf.ex.toLowerCase().split(/[,;\n]+/).map(s=>s.trim()).filter(Boolean).flatMap(w=>{const k=Object.keys(ALI).find(a=>w.startsWith(a));return k?ALI[k].concat(w.slice(0,Math.max(4,w.length-2))):[w.length>4?w.slice(0,w.length-2):w]});
+function rpf(){if(!$("#p_w"))return;const g=i=>$("#"+i).value;S.pf={w:g("p_w"),h:g("p_h"),a:g("p_a"),sex:g("p_s"),act:+g("p_c"),ex:g("p_x")};ls.set("gf_pf",S.pf)}
+function kc(){const p=S.pf,w=+p.w,h=+p.h,a=+p.a;if(!(w>0&&h>0&&a>0))return null;const bmr=10*w+6.25*h-5*a+(p.sex==="m"?5:-161),t=bmr*p.act,L=S.gen.includes("loss"),G=S.gen.includes("mass"),k=L&&!G?.85:G&&!L?1.15:1;return{bmr,t,k:Math.round(t*k/10)*10,pr:Math.round(w*(G?2:L?1.8:1.4))}}
+const so=(id,o,v)=>`<select id="${id}">${o.map(([a,b])=>`<option value="${a}" ${String(a)===String(v)?"selected":""}>${b}</option>`).join("")}</select>`;
+const kcH=()=>{const c=kc();return c?`<div class="m">Обмен в покое: <b>${Math.round(c.bmr)}</b> ккал. Суточная потребность: <b>${Math.round(c.t)}</b> ккал.<br>Цель для меню: <b>${c.k} ккал</b> в день, белок около <b>${c.pr} г</b>.<br><span class="mu">Цель зависит от выбранных ниже разделов: похудение −15%, набор массы +15%. Формула Миффлина — Сан-Жеора, расчёт ориентировочный.</span></div>`:'<p class="mu">Введите вес, рост и возраст для расчёта калорий.</p>'};
+function gen(){const e=exs(),c=kc(),sp={b:.25,l:.35,d:.25,s:.15};S.menu=M.map(([k,t])=>{const p=F.filter(f=>f[0]===k&&S.gen.every(g=>f[2].split(" ").includes(g))&&!e.some(x=>f[1].toLowerCase().includes(x)));return[t,p.length?p[Math.floor(Math.random()*p.length)][1]:null,c?Math.round(c.k*sp[k]/10)*10:0]})}
+const menu=()=>!(S.user||S.adm)?lock():`<h2>Ваши параметры</h2><div class="c"><div class="g"><label>Вес, кг<input id="p_w" type="number" min="20" max="300" value="${esc(S.pf.w)}"></label><label>Рост, см<input id="p_h" type="number" min="100" max="250" value="${esc(S.pf.h)}"></label><label>Возраст<input id="p_a" type="number" min="14" max="100" value="${esc(S.pf.a)}"></label><label>Пол${so("p_s",[["m","Мужской"],["f","Женский"]],S.pf.sex)}</label><label>Активность${so("p_c",[[1.2,"Сидячая"],[1.375,"Лёгкая (1–3 тренировки)"],[1.55,"Средняя (3–5 тренировок)"],[1.725,"Высокая (6–7 тренировок)"]],S.pf.act)}</label></div><label>Не люблю или не переношу (через запятую)<textarea id="p_x" rows="2" placeholder="например: лосось, творог, орехи">${esc(S.pf.ex)}</textarea></label><button class="pr" data-a="pf">Рассчитать калории</button>${kcH()}<p class="mu">Исключённые продукты не попадут в подбор меню. При аллергии или непереносимости всегда проверяйте состав блюд и советуйтесь с врачом.</p></div><h2>Подбор меню на день</h2><p class="mu">Отметьте разделы — блюда подойдут под все выбранные сразу.</p><div class="g">${D.map(d=>`<label class="c k"><input type="checkbox" data-a="gd" data-v="${d.id}" ${S.gen.includes(d.id)?"checked":""}><b>${d.i} ${esc(d.n)}</b></label>`).join("")}</div><p><button class="pr" data-a="gen">Подобрать меню</button></p>${S.menu?`<div class="c">${S.menu.map(([t,n,k])=>`<p><b>${t}:</b> ${n?esc(n)+(k?` <span class="mu">(порция ~${k} ккал)</span>`:""):'<span class="no">нет подходящего блюда для такого сочетания разделов и исключений</span>'}</p>`).join("")}</div>`:""}${S.gen.length?`<h3 style="margin-top:16px">Что не есть при выбранных разделах</h3><div>${[...new Set(S.gen.flatMap(i=>D.find(x=>x.id===i).no))].map(x=>`<span class="t no">${esc(x)}</span>`).join("")}</div><h3 style="margin-top:12px">Ограничить</h3><div>${[...new Set(S.gen.flatMap(i=>D.find(x=>x.id===i).lm))].map(x=>`<span class="t lm">${esc(x)}</span>`).join("")}</div>`:""}`;
+const cab=()=>{if(S.user){const o=(ls.get("gf_u")||{})[S.user]?.orders||[];return`<h2>Кабинет: ${esc(S.user)}</h2><div class="c"><h3>Мои заказы</h3>${o.length?o.map(x=>`<p>${esc(x.d)} — ${esc(x.p)}, ${esc(x.s)}: <b>${fmt(x.sum)}</b> <span class="t">${esc(x.st)}</span></p>`).join(""):'<p class="mu">Заказов пока нет.</p>'}</div>${S.msg?`<div class="m">${esc(S.msg)}</div>`:""}<p><button data-a="out">Выйти</button></p>`}
+return`<h2>Вход</h2><div class="c" style="max-width:380px"><label>Логин<input id="lg" autocomplete="username"></label><label>Пароль<input id="pw" type="password" autocomplete="current-password"></label><button class="pr" data-a="in">Войти</button> <button data-a="reg">Регистрация</button>${S.msg?`<div class="m">${esc(S.msg)}</div>`:""}<p class="mu">Владелец сайта входит здесь же своим логином и паролем.</p></div>`};
+const adm=()=>!S.adm?lock():`<h2>Панель владельца</h2><div class="c"><h3>Общие</h3><label>Название<input id="a_br" value="${esc(CFG.brand)}"></label><label>Ссылка на оплату (https://…, например Kaspi Pay)<input id="a_pay" value="${esc(CFG.pay)}"></label><label>Подпись у кнопки оплаты<input id="a_pn" value="${esc(CFG.payNote)}"></label></div>
+<h3>Пакеты</h3><div class="g">${CFG.pk.map((p,i)=>`<div class="c"><label>Название<input id="a_n${i}" value="${esc(p.name)}"></label><label>Цена за раздел, ₸ / мес<input id="a_p${i}" type="number" value="${p.price}"></label><label>Что входит (по строке)<textarea id="a_f${i}" rows="5">${esc(p.feat.join("\n"))}</textarea></label></div>`).join("")}</div>
+<h3>Скидки за несколько разделов, %</h3><div class="g">${[1,2,3,4].map(n=>`<label>${n} раздел(а)<input id="a_d${n}" type="number" value="${CFG.disc[n]||0}"></label>`).join("")}</div>
+<div class="c"><h3>Доступ владельца</h3><label>Логин<input id="a_l" value="${esc(CFG.admLogin)}"></label><label>Новый пароль (пусто — не менять)<input id="a_w" type="password"></label>${CFG.admHash?"":'<p class="lm">⚠️ Сейчас пароль по умолчанию admin123 — смените его!</p>'}</div>
+<p><button class="pr" data-a="save">Сохранить и опубликовать</button></p>${S.st?`<div class="m">${esc(S.st)}</div>`:""}`;
+function render(){const T=[["home","Тарифы"],["menu","Подбор меню"],["lists","Продукты"],["cab",S.user?"Кабинет":"Вход"]];if(S.adm)T.push(["adm","Админ"]);
+ $("#root").innerHTML=`<header><h1>🥦 ${esc(CFG.brand)}</h1><nav>${T.map(([k,t])=>`<button class="${S.tab===k?"on":""}" data-a="tab" data-v="${k}">${t}</button>`).join("")}</nav></header>${{home,menu,lists,cab,adm}[S.tab]()}`}
+async function act(a,v){rpf();
+ if(a==="tab"){S.tab=v;S.msg=""}
+ else if(a==="sel"){S.sel=S.sel.includes(v)?S.sel.filter(x=>x!==v):S.sel.concat(v)}
+ else if(a==="pk")S.pk=v;
+ else if(a==="gd"){S.gen=S.gen.includes(v)?S.gen.filter(x=>x!==v):S.gen.concat(v);S.menu=null}
+ else if(a==="pf"){S.menu=null}
+ else if(a==="gen"){if(!S.gen.length)S.gen=["gf"];gen()}
+ else if(a==="pay")return pay();
+ else if(a==="out"){S.user=null;S.adm=false;S.tab="home"}
+ else if(a==="in"||a==="reg"){const l=$("#lg").value.trim(),p=$("#pw").value;if(!l||p.length<6){S.msg="Введите логин и пароль (от 6 символов)";return render()}
+  const h=await sha(p),u=ls.get("gf_u")||{};
+  if(a==="in"&&l===CFG.admLogin&&h===(CFG.admHash||await sha("admin123"))){S.adm=true;S.user=null;S.tab="adm";S.msg=""}
+  else if(a==="reg"){if(u[l]||l===CFG.admLogin)S.msg="Такой логин уже занят";else{u[l]={h,orders:[]};ls.set("gf_u",u);S.user=l;S.tab="home";S.msg=""}}
+  else if(u[l]&&u[l].h===h){S.user=l;S.tab="home";S.msg=""}else S.msg="Неверный логин или пароль"}
+ else if(a==="save"){const g=i=>$("#"+i).value;CFG.brand=g("a_br")||CFG.brand;CFG.pay=g("a_pay").trim();CFG.payNote=g("a_pn");
+  CFG.pk.forEach((p,i)=>{p.name=g("a_n"+i)||p.name;p.price=Math.max(0,+g("a_p"+i)||0);p.feat=g("a_f"+i).split("\n").map(s=>s.trim()).filter(Boolean)});
+  [1,2,3,4].forEach(n=>CFG.disc[n]=Math.min(90,Math.max(0,+g("a_d"+n)||0)));
+  CFG.admLogin=g("a_l").trim()||"admin";if(g("a_w")){if(g("a_w").length<6){S.st="Пароль — минимум 6 символов";return render()}CFG.admHash=await sha(g("a_w"))}else if(!CFG.admHash&&CFG.admLogin){}
+  const ar=await (window.claude&&claude.use("artifact"));
+  if(!ar){const b=new Blob(["window.SITE_CONFIG="+JSON.stringify(CFG,null,2)+";"],{type:"text/javascript"}),u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download="config.js";a.click();S.st="Скачан файл config.js. Загрузите его в репозиторий GitHub вместо старого — и новые цены увидят все.";return render()}
+  try{const cl=document.documentElement.cloneNode(true);cl.querySelector("#root").innerHTML="";const sc=cl.querySelector("#app");
+   sc.textContent=sc.textContent.replace(/\/\*CFG\*\/[\s\S]*?\/\*END\*\//,()=>"/*CFG*/"+JSON.stringify(CFG).replace(/</g,"\\u003c")+"/*END*/");
+   S.st="Публикую…";render();await ar.publish("<!doctype html>\n"+cl.outerHTML)}catch(e){S.st="Не удалось опубликовать: "+(e.message||e.code||e)}}
+ render()}
+$("#root").addEventListener("click",e=>{const t=e.target.closest("[data-a]");if(t&&t.type!=="checkbox"){act(t.dataset.a,t.dataset.v)}});
+$("#root").addEventListener("change",e=>{const t=e.target;if(t.type==="checkbox"&&t.dataset.a)act(t.dataset.a,t.dataset.v)});
+render();
+</script></body></html>
